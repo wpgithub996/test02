@@ -1,0 +1,30 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git: #git������Ϣ
+          uri: https://github.com/wpgithub996/dev
+  rabbitmq:
+    host: 192.168.44.110
+    port: 5672
+    username: admin
+    password: 123456
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
+management:
+  endpoint:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+

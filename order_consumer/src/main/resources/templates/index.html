@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript"  src="/js/jquery-1.9.1.js"></script>
+</head>
+
+<body>
+    <div align="center" style="margin-top: 200px">
+        <table border="1px" cellspacing="0px" cellpadding="0px">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>描述</th>
+                    <th>日期</th>
+                    <th>总数</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    $(function () {
+        $.ajax({
+            type:"POST",
+            url:"/findOrder",
+            success:function (data) {
+                var str="";
+                for(var i=0;i<data.length;i++){
+                    str+=' <tr>\n' +
+                        '<td>'+data[i].id+'</td>\n' +
+                        '<td>'+data[i].remark+'</td>\n' +
+                        '<td>'+data[i].total+'</td>\n' +
+                        '<td></td>\n' +
+                        '</tr>';
+                }
+                $("#tb").html(str);
+            }
+        })
+    })
+</script>
+</html>

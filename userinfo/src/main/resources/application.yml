@@ -1,0 +1,18 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///exam?serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    open-in-view: true
+    show-sql: true
+    generate-ddl: true
+  redis:
+    cluster:
+      nodes: 192.168.44.70:7001,192.168.44.70:7002,192.168.44.70:7003
+  mvc:
+    static-path-pattern: /**
+
